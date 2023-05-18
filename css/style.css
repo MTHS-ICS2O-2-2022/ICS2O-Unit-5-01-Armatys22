@@ -1,37 +1,47 @@
-/* Created by: dom
-* Created on: Sep 2020
+/* Created by: Dominik Armatys
+* Created on: may 2023
 * This file contains the CSS for index.html
 */
 
 .mdl-layout__header-row {
-  align-items: center;
   justify-content: center;
+  padding: 0;
 }
 
 .mdl-layout__content {
   padding-left: 15pt;
   padding-right: 15pt;
-  padding-top: 30px;
+  padding-top: 15pt;
 }
 
-/* Due to error in MDL : https://github.com/google/material-design-lite/issues/5281
-*/
+.mdl-textfield__error {
+  color: rgb(255, 0, 38);
+}
+
+.page-content {
+  color: rgb(255, 196, 0);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+}
+
+.page-content-answer {
+  color: rgb(46, 147, 247);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+}
+
+.right-image {
+  height: auto;
+  width: 480px;
+  float: right;
+}
 
 body {
-  background-color: rgb(0, 0, 0);
-}
-
-p {
-  color: rgb(214, 6, 6);
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 2rem;
-  padding-bottom: 10pt;
+  background-color: rgb(6, 255, 209);
 }
 
 img {
-  height: 200;
-  width: 450px;
   float: right;
-  margin-bottom: 100;
-  margin-right: 100;
+  width: auto;
+  height: 500px;
 }

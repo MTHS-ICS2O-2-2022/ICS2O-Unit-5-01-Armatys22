@@ -1,63 +1,86 @@
 <!DOCTYPE html>
-<!-- ICS2O-My first PWA -->
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="My first Slider" />
-  <meta name="keywords" content="mths, ics2o" />
-  <meta name="author" content="Dominik Armatys" />
-  <meta name="theme-color" content="#FFFFFF" />
-  <title>My first Slider</title>
-  <link rel="canonical" href="https://mr-coxall.github.io/ICS2O-Unit5-01-HTML-Slider-Example/" />
-  <link rel="manifest" href="/ICS2O-Unit5-01-HTML-Slider-Example/manifest.webmanifest" />
-  <link rel="stylesheet" href="./css/styles.css" />
-  <!-- None blocking for Lighthouse report -->
-  <!-- https://stackoverflow.com/questions/32759272/how-to-load-css-asynchronously -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" media="none"
-    onload="if(media!='all')media='all'"><noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  </noscript>
-  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-purple.min.css" media="none"
-    onload="if(media!='all')media='all'"><noscript>
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-purple.min.css">
-  </noscript>
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-</head>
-<title>My first Slider</title>
-<body>
-  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-  <script src="./js/script.js"></script>
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
-      <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title">My first PWA</span>
-      </div>
-    </header>
-    <main class="mdl-layout__content">
-      <p></p>
-      <img src="./images/notebook-animation.svg" alt="Computer" width="25%" height="25%">
-      <p></p>
-      <div id="slider-value">
-        ?
-      </div>
-      <!-- Slider with Starting Value -->
-      <!-- Note: I added and ID to this component, so I could reference it in code -->
-      <!-- Note: I also placed it inside a "label" for accessability -->
-      <label>
-        Slider's Value
-        <input id="slider" class="mdl-slider mdl-js-slider" type="range" min="0" max="10" value="2" tabindex="0"
-          onchange="updateSliderValue(this.value)">
-      </label>
-      <!-- Raised button with ripple -->
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-        onclick="myButtonClicked()">
-        Show Value
-      </button>
-      <!-- basic text -->
-      <p></p>
-      <div id="hello-world"></div>
-    </main>
-  </div>
+<!-- ICS2O-Unit5-01-->
+<html lang="en-ca">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Select a number on the dice" />
+    <meta name="keywords" content="mths, ics2o" />
+    <meta name="author" content="Dominik Armatys" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- Note the addition for the selection component-->
+    <link rel="stylesheet" href="./css/getmdl-select.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://code.getmdl.io/1.3.0/material.cyan-indigo.min.css"
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="./dice.gif" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./dice.gif" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./dice.gif" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <title>Dice rolling guesser</title>
+  </head>
+  <body>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="./js/script.js"></script>
+    <!-- Note the addition for the selection component-->
+    <script src="./js/getmdl-select.js"></script>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Dice Guessing webpage</span>
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <div id="image">
+          <img src="dice.gif" alt="style" />
+        </div>
+        <div class="page-content-instructions">
+          <div id="instructions">Pick a Number:</div>
+        </div>
+        <!-- Simple Select with arrow -->
+        <div class="mdl-textfield mdl-js-textfield getmdl-select">
+          <input
+            type="text"
+            value=""
+            class="mdl-textfield__input"
+            id="guessed-number"
+            readonly
+          />
+          <input type="hidden" value="" name="guessed-number" />
+          <i class="mdl-icon-toggle__label material-icons"
+            >keyboard_arrow_down</i
+          >
+          <label for="sample2" class="mdl-textfield__label"
+            >Number Selected</label
+          >
+          <ul for="sample2" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+            <li class="mdl-menu__item" data-val="one">1</li>
+            <li class="mdl-menu__item" data-val="two">2</li>
+            <li class="mdl-menu__item" data-val="three">3</li>
+            <li class="mdl-menu__item" data-val="four">4</li>
+            <li class="mdl-menu__item" data-val="five">5</li>
+            <li class="mdl-menu__item" data-val="six">6</li>
+          </ul>
+        </div>
+        <br />
+        <!-- Accent-colored raised button with ripple -->
+        <button
+          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+          onclick="myButtonClicked()"
+        >
+          Guess
+        </button>
+        <br />
+        <br />
+        <div class="page-content-answer">
+          <div id="answer"></div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
